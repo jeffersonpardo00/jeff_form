@@ -61,7 +61,7 @@ export class JeffFormComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(MessageComponent, {
-      width: '250px',
+      width: '500px',
       data: this.persona,
     });
 

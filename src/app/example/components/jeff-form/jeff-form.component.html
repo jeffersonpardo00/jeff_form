@@ -1,8 +1,8 @@
-<div class="mx-auto max-w-xl mt-6 p-6 bg-white rounded-xl shadow-lg">
+<div class="mx-auto max-w-xl my-6 p-6 bg-white rounded-xl shadow-xl">
   <form [formGroup]= "form" (ngSubmit)="saveData($event)">
     <mat-card>
         <mat-card-header>
-            <mat-card-title>
+            <mat-card-title class="font-bold text-xl m-0">
                 Persona
             </mat-card-title>
         </mat-card-header>
@@ -98,7 +98,7 @@
         </div>
         <div class="w-full p-3">
           <div class="w-full sm:w-3/4 mx-auto">
-              <mat-label class="p-3 mb-3 font-sans text-base">Pasatiempo</mat-label>
+              <mat-label class="p-3 mb-3 text-zinc-500 text-base">Pasatiempo</mat-label>
               <mat-radio-group class="w-full p-3 flex flex-row justify-around" formControlName = "pasatiempo">
                 <mat-radio-button class="pl-1 pr-1" *ngFor="let pasatiempo of pasatiempos; let i = index" [value]="i">
                   {{pasatiempo}}

@@ -1,13 +1,43 @@
-<h1 mat-dialog-title>Datos guardados</h1>
-<div mat-dialog-content>
-  <div>{{personaView.nombre}}</div>
-  <div>{{personaView.apellido}}</div>
-  <div>{{personaView.documento}}</div>
-  <div>{{personaView.correo}}</div>
-  <div>{{personaView.genero}}</div>
-  <div>{{personaView.edad}}</div>
-  <div>{{personaView.pasatiempo}}</div>
+<div class="p-3 w-full">
+  <div class="w-full sm:w-3/4 mx-auto">
+    <h1 class="font-bold text-xl m-0 text-center" mat-dialog-title>Datos guardados</h1>
+    <div mat-dialog-content class="w-full">
+    <table class="w-full">
+      <tbody>
+        <tr>
+          <td class="w-1/2 font-bold text-right">Nombre: </td>
+          <td class="w-1/2 pl-1">{{personaView.nombre}}</td>
+        </tr>
+        <tr>
+          <td class="w-1/2 font-bold text-right">Apellido: </td>
+          <td class="w-1/2 pl-1">{{personaView.apellido}}</td>
+        </tr>
+        <tr>
+          <td class="w-1/2 font-bold text-right">Documento: </td>
+          <td class="w-1/2 pl-1">{{personaView.documento}}</td>
+        </tr>
+        <tr>
+          <td class="w-1/2 font-bold text-right">Correo: </td>
+          <td class="w-1/2 pl-1">{{personaView.correo}}</td>
+        </tr>
+        <tr>
+          <td class="w-1/2 font-bold text-right">Genero: </td>
+          <td class="w-1/2 pl-1">{{personaView.genero}}</td>
+        </tr>
+        <tr>
+          <td class="w-1/2 font-bold text-right">Edad: </td>
+          <td class="w-1/2 pl-1">{{personaView.edad}}</td>
+        </tr>
+        <tr>
+          <td class="w-1/2 font-bold text-right">pasatiempo: </td>
+          <td class="w-1/2 pl-1">{{personaView.pasatiempo}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div mat-dialog-actions class="w-full flex flex-row justify-end">
+    <button mat-button (click)="onNoClick()">ok</button>
+  </div>
+  </div>
 </div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">ok</button>
-</div>
+
