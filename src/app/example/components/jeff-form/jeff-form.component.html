@@ -64,6 +64,54 @@
             </div>
         </div>
       </div>
+      <div class="row">
+        <div class="col-xs">
+          <mat-form-field appearance="fill">
+            <mat-label>Género</mat-label>
+            <mat-select formControlName = "genero">
+              <mat-option *ngFor="let genero of generos; let i = index" [value]="i">
+                {{genero}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <div *ngIf="Field('genero')">
+            <div *ngIf="Field('genero').errors && Field('genero').dirty">
+              <p *ngIf="Field('genero').hasError('required')">Este campo es requerido</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs">
+            <mat-form-field>
+                <mat-label>Edad</mat-label>
+                <input matInput placeholder="Ej. 35" formControlName = "edad" type="number">
+            </mat-form-field>
+            <div *ngIf="Field('edad')">
+              <div *ngIf="Field('edad').errors && Field('edad').dirty">
+                <p *ngIf="Field('edad').hasError('min')">Debe tene ser positivo</p>
+                <p *ngIf="Field('edad').hasError('max')">máximo hasta 100</p>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs">
+            <mat-label>Pasatiempo</mat-label>
+            <br/>
+            <mat-radio-group formControlName = "pasatiempo">
+              <mat-radio-button *ngFor="let pasatiempo of pasatiempos; let i = index" [value]="i">
+                {{pasatiempo}}
+              </mat-radio-button>
+            </mat-radio-group>
+          <div *ngIf="Field('pasatiempo')">
+            <div *ngIf="Field('pasatiempo').errors && Field('pasatiempo').dirty">
+              <p *ngIf="Field('pasatiempo').hasError('required')">Este campo es requerido</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </mat-card-content>
 
     <mat-card-actions>

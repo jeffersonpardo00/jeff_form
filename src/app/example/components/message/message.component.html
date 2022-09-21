@@ -1,11 +1,12 @@
-
-
 <h1 mat-dialog-title>Datos guardados</h1>
 <div mat-dialog-content>
-  <div>{{persona.nombre}}</div>
-  <div>{{persona.apellido}}</div>
-  <div>{{persona.documento}}</div>
-  <div>{{persona.correo}}</div>
+  <div>{{personaView.nombre}}</div>
+  <div>{{personaView.apellido}}</div>
+  <div>{{personaView.documento}}</div>
+  <div>{{personaView.correo}}</div>
+  <div>{{personaView.genero}}</div>
+  <div>{{personaView.edad}}</div>
+  <div>{{personaView.pasatiempo}}</div>
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">ok</button>

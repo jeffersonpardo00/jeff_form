@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
-import { Persona, personaNUll } from 'src/app/models/persona.model';
+import { Persona, personaNUll, generosPersona, pasatiemposPersona } from 'src/app/models/persona.model';
 import { ExampleService } from 'src/app/services/example.service';
 import { MessageComponent } from '../message/message.component';
 
@@ -16,6 +16,9 @@ export class JeffFormComponent implements OnInit {
   public form: FormGroup;
   public persona: Persona;
   public personaGuardada$: Observable<Persona>;
+  public generos: (string | null)[];
+  public pasatiempos: string[];
+  public firstTime: boolean;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -29,20 +32,28 @@ export class JeffFormComponent implements OnInit {
       apellido: ['', [Validators.required, Validators.minLength(3)]],
       documento: ['', [Validators.required, Validators.minLength(10)]],
       correo: ['', [Validators.required, Validators.email]],
-      /*genero: [0, [Validators.required, Validators.min(1), Validators.max(2)]],
+      genero: [0, [Validators.required]],
       edad: [0, [Validators.required, Validators.min(0), Validators.max(100)]],
-      pasatiempo: [0, [Validators.required, Validators.min(1), Validators.max(3)]]*/
+      pasatiempo: [0, [Validators.required]],
     });
 
     this.persona =  personaNUll;
     this.personaGuardada$ = exampleService.personaGuardada$;
+    this.firstTime = true;
     this.personaGuardada$.subscribe(
       persona => {
+
         this.persona = persona;
-        this.openDialog();
+
+        if(!this.firstTime){
+          this.openDialog();
+        }
         this.form.reset();
+        this.firstTime = false;
       }
     );
+    this.generos = generosPersona;
+    this.pasatiempos = pasatiemposPersona;
   }
 
   ngOnInit(): void {
