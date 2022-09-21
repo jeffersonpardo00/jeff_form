@@ -11,16 +11,9 @@ import {MatCardModule} from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
+import {MatDialogModule} from '@angular/material/dialog';
 
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatListModule } from '@angular/material/list';
-import { MatTableModule } from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatSortModule } from '@angular/material/sort';
-import { MatGridListModule } from '@angular/material/grid-list';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatStepperModule } from '@angular/material/stepper';
+
 
 @NgModule({
   declarations: [],
@@ -34,16 +27,8 @@ import { MatStepperModule } from '@angular/material/stepper';
     MatInputModule,
     MatSelectModule,
     MatRadioModule,
-    MatSidenavModule,
-    MatListModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatGridListModule,
-    MatMenuModule,
     LayoutModule,
-    MatFormFieldModule,
-    MatStepperModule
+    MatDialogModule,
   ],
   exports: [
     MatButtonModule,
@@ -54,16 +39,8 @@ import { MatStepperModule } from '@angular/material/stepper';
     MatInputModule,
     MatSelectModule,
     MatRadioModule,
-    MatSidenavModule,
-    MatListModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatGridListModule,
-    MatMenuModule,
     LayoutModule,
-    MatFormFieldModule,
-    MatStepperModule
+    MatDialogModule,
   ]
 })
 export class MaterialModule { }

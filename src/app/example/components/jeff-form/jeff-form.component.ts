@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { Persona, personaNUll } from 'src/app/models/persona.model';
 import { ExampleService } from 'src/app/services/example.service';
+import { MessageComponent } from '../message/message.component';
 
 @Component({
   selector: 'app-jeff-form',
@@ -18,6 +20,7 @@ export class JeffFormComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private exampleService: ExampleService,
+    public dialog: MatDialog,
   ) {
 
     this.form = this.formBuilder.group({
@@ -35,13 +38,25 @@ export class JeffFormComponent implements OnInit {
     this.personaGuardada$ = exampleService.personaGuardada$;
     this.personaGuardada$.subscribe(
       persona => {
-        console.log(persona);
+        this.persona = persona;
+        this.openDialog();
         this.form.reset();
       }
     );
   }
 
   ngOnInit(): void {
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(MessageComponent, {
+      width: '250px',
+      data: this.persona,
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 
   get nombreField (): any {
