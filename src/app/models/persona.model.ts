@@ -21,7 +21,6 @@ export const personaNUll = {
 }
 
 export const generosPersona = [
-  null,
   'masculino',
   'femenino',
 ];

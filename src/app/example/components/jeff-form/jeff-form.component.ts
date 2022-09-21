@@ -16,7 +16,7 @@ export class JeffFormComponent implements OnInit {
   public form: FormGroup;
   public persona: Persona;
   public personaGuardada$: Observable<Persona>;
-  public generos: (string | null)[];
+  public generos: string[];
   public pasatiempos: string[];
   public firstTime: boolean;
 
