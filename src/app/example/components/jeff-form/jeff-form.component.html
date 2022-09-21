@@ -1,1 +1,75 @@
-<p>jeff-form works!</p>
+<form [formGroup]= "form" (ngSubmit)="saveData($event)">
+  <mat-card>
+      <mat-card-header>
+          <mat-card-title>
+              Producto
+          </mat-card-title>
+      </mat-card-header>
+    </mat-card>
+
+    <mat-card-content>
+      <div class="row">
+        <div class="col-xs">
+            <mat-form-field>
+                <mat-label>Nombre</mat-label>
+                <input matInput placeholder="Ej. Juan" formControlName = "nombre" type="text">
+            </mat-form-field>
+            <div *ngIf="nombreField">
+              <div *ngIf="nombreField.errors && nombreField.dirty">
+                <p *ngIf="nombreField.hasError('minlength')">Debe tener mas de 3 caracteres</p>
+                <p *ngIf="nombreField.hasError('required')">Este campo es requerido</p>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs">
+            <mat-form-field>
+                <mat-label>Apellido</mat-label>
+                <input matInput placeholder="Ej. Perez" formControlName = "apellido" type="text">
+            </mat-form-field>
+            <div *ngIf="Field('apellido')">
+              <div *ngIf="Field('apellido').errors && Field('apellido').dirty">
+                <p *ngIf="Field('apellido').hasError('minlength')">Debe tener mas de 3 caracteres</p>
+                <p *ngIf="Field('apellido').hasError('required')">Este campo es requerido</p>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs">
+            <mat-form-field>
+                <mat-label>Documento</mat-label>
+                <input matInput placeholder="Ej. 1234567890" formControlName = "documento" type="text">
+            </mat-form-field>
+            <div *ngIf="Field('documento')">
+              <div *ngIf="Field('documento').errors && Field('documento').dirty">
+                <p *ngIf="Field('documento').hasError('minlength')">Debe tener 10 caracteres o más</p>
+                <p *ngIf="Field('documento').hasError('required')">Este campo es requerido</p>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs">
+            <mat-form-field>
+                <mat-label>Correo</mat-label>
+                <input matInput placeholder="Ej. ejemplo@test.com" formControlName = "correo" type="text">
+            </mat-form-field>
+            <div *ngIf="Field('correo')">
+              <div *ngIf="Field('correo').errors && Field('correo').dirty">
+                <p *ngIf="Field('correo').hasError('email')">Debe ser un email</p>
+                <p *ngIf="Field('correo').hasError('required')">Este campo es requerido</p>
+              </div>
+            </div>
+        </div>
+      </div>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button [disabled]="form.invalid" mat-raised-button type="submit">
+          Guardar
+      </button>
+  </mat-card-actions>
+
+</form>
