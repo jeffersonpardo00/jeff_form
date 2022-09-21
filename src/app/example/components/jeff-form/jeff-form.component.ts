@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { Persona, personaNUll } from 'src/app/models/persona.model';
 import { ExampleService } from 'src/app/services/example.service';
 
@@ -12,6 +13,7 @@ export class JeffFormComponent implements OnInit {
 
   public form: FormGroup;
   public persona: Persona;
+  public personaGuardada$: Observable<Persona>;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -30,7 +32,13 @@ export class JeffFormComponent implements OnInit {
     });
 
     this.persona =  personaNUll;
-
+    this.personaGuardada$ = exampleService.personaGuardada$;
+    this.personaGuardada$.subscribe(
+      persona => {
+        console.log(persona);
+        this.form.reset();
+      }
+    );
   }
 
   ngOnInit(): void {
@@ -48,7 +56,6 @@ export class JeffFormComponent implements OnInit {
     event.preventDefault();
     this.persona = this.form.value;
     this.exampleService.guardarPersona(this.persona);
-    console.log(this.exampleService.getStoragePersona());
   }
 
 }
