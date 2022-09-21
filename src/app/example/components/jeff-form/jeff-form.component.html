@@ -1,35 +1,35 @@
-<div class="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-lg">
+<div class="mx-auto max-w-xl mt-6 p-6 bg-white rounded-xl shadow-lg">
   <form [formGroup]= "form" (ngSubmit)="saveData($event)">
     <mat-card>
         <mat-card-header>
             <mat-card-title>
-                Producto
+                Persona
             </mat-card-title>
         </mat-card-header>
       </mat-card>
 
       <mat-card-content>
-        <div class="row">
-          <div class="col-xs">
-              <mat-form-field>
-                  <mat-label>Nombre</mat-label>
-                  <input matInput placeholder="Ej. Juan" formControlName = "nombre" type="text">
-              </mat-form-field>
-              <div *ngIf="nombreField">
-                <div *ngIf="nombreField.errors && nombreField.dirty">
-                  <p *ngIf="nombreField.hasError('minlength')">Debe tener mas de 3 caracteres</p>
-                  <p *ngIf="nombreField.hasError('required')">Este campo es requerido</p>
-                </div>
+        <div class="w-full p-3">
+          <div class="w-full sm:w-3/4 mx-auto">
+            <mat-form-field>
+              <mat-label>Nombre</mat-label>
+              <input matInput placeholder="Ej. Juan" formControlName = "nombre" type="text">
+            </mat-form-field>
+            <div class="w-full text-red-600" *ngIf="nombreField">
+              <div *ngIf="nombreField.errors && nombreField.dirty">
+                <p *ngIf="nombreField.hasError('minlength')">Debe tener mas de 3 caracteres</p>
+                <p *ngIf="nombreField.hasError('required')">Este campo es requerido</p>
               </div>
+            </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-xs">
+        <div class="w-full p-3">
+          <div class="w-full sm:w-3/4 mx-auto">
               <mat-form-field>
                   <mat-label>Apellido</mat-label>
                   <input matInput placeholder="Ej. Perez" formControlName = "apellido" type="text">
               </mat-form-field>
-              <div *ngIf="Field('apellido')">
+              <div class="w-full text-red-600" *ngIf="Field('apellido')">
                 <div *ngIf="Field('apellido').errors && Field('apellido').dirty">
                   <p *ngIf="Field('apellido').hasError('minlength')">Debe tener mas de 3 caracteres</p>
                   <p *ngIf="Field('apellido').hasError('required')">Este campo es requerido</p>
@@ -37,13 +37,13 @@
               </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-xs">
+        <div class="w-full p-3">
+          <div class="w-full sm:w-3/4 mx-auto">
               <mat-form-field>
                   <mat-label>Documento</mat-label>
                   <input matInput placeholder="Ej. 1234567890" formControlName = "documento" type="text">
               </mat-form-field>
-              <div *ngIf="Field('documento')">
+              <div class="w-full text-red-600" *ngIf="Field('documento')">
                 <div *ngIf="Field('documento').errors && Field('documento').dirty">
                   <p *ngIf="Field('documento').hasError('minlength')">Debe tener 10 caracteres o más</p>
                   <p *ngIf="Field('documento').hasError('required')">Este campo es requerido</p>
@@ -51,13 +51,13 @@
               </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-xs">
+        <div class="w-full p-3">
+          <div class="w-full sm:w-3/4 mx-auto">
               <mat-form-field>
                   <mat-label>Correo</mat-label>
                   <input matInput placeholder="Ej. ejemplo@test.com" formControlName = "correo" type="text">
               </mat-form-field>
-              <div *ngIf="Field('correo')">
+              <div class="w-full text-red-600" *ngIf="Field('correo')">
                 <div *ngIf="Field('correo').errors && Field('correo').dirty">
                   <p *ngIf="Field('correo').hasError('email')">Debe ser un email</p>
                   <p *ngIf="Field('correo').hasError('required')">Este campo es requerido</p>
@@ -65,8 +65,8 @@
               </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-xs">
+        <div class="w-full p-3">
+          <div class="w-full sm:w-2/4 mx-auto">
             <mat-form-field appearance="fill">
               <mat-label>Género</mat-label>
               <mat-select formControlName = "genero">
@@ -75,20 +75,20 @@
                 </mat-option>
               </mat-select>
             </mat-form-field>
-            <div *ngIf="Field('genero')">
+            <div class="w-full text-red-600" *ngIf="Field('genero')">
               <div *ngIf="Field('genero').errors && Field('genero').dirty">
                 <p *ngIf="Field('genero').hasError('required')">Este campo es requerido</p>
               </div>
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-xs">
+        <div class="w-full p-3">
+          <div class="w-full sm:w-2/4 mx-auto">
               <mat-form-field>
                   <mat-label>Edad</mat-label>
                   <input matInput placeholder="Ej. 35" formControlName = "edad" type="number">
               </mat-form-field>
-              <div *ngIf="Field('edad')">
+              <div class="w-full text-red-600" *ngIf="Field('edad')">
                 <div *ngIf="Field('edad').errors && Field('edad').dirty">
                   <p *ngIf="Field('edad').hasError('min')">Debe tene ser positivo</p>
                   <p *ngIf="Field('edad').hasError('max')">máximo hasta 100</p>
@@ -96,30 +96,32 @@
               </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-xs">
-              <mat-label>Pasatiempo</mat-label>
-              <br/>
-              <mat-radio-group formControlName = "pasatiempo">
-                <mat-radio-button *ngFor="let pasatiempo of pasatiempos; let i = index" [value]="i">
+        <div class="w-full p-3">
+          <div class="w-full sm:w-3/4 mx-auto">
+              <mat-label class="p-3 mb-3 font-sans text-base">Pasatiempo</mat-label>
+              <mat-radio-group class="w-full p-3 flex flex-row justify-around" formControlName = "pasatiempo">
+                <mat-radio-button class="pl-1 pr-1" *ngFor="let pasatiempo of pasatiempos; let i = index" [value]="i">
                   {{pasatiempo}}
                 </mat-radio-button>
               </mat-radio-group>
-            <div *ngIf="Field('pasatiempo')">
+            <div class="w-full text-red-600" *ngIf="Field('pasatiempo')">
               <div *ngIf="Field('pasatiempo').errors && Field('pasatiempo').dirty">
                 <p *ngIf="Field('pasatiempo').hasError('required')">Este campo es requerido</p>
               </div>
             </div>
           </div>
         </div>
-
       </mat-card-content>
 
       <mat-card-actions>
-        <button [disabled]="form.invalid" mat-raised-button type="submit">
-            Guardar
-        </button>
-    </mat-card-actions>
+        <div class="w-full p-3">
+          <div class="w-full sm:w-3/4 mx-auto flex flex-row justify-end">
+            <button [disabled]="form.invalid" mat-raised-button type="submit">
+                Guardar
+            </button>
+          </div>
+        </div>
+      </mat-card-actions>
 
   </form>
 
